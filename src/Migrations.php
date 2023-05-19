@@ -220,7 +220,7 @@ class Migrations
      * - `plugin` The plugin containing the migrations
      * @return bool Success
      */
-    public function markMigrated($version = null, array $options = [])
+    public function markMigrated(?string $version = null, array $options = []): bool
     {
         $this->setCommand('mark_migrated');
 

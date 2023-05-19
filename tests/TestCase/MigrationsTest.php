@@ -443,7 +443,7 @@ class MigrationsTest extends TestCase
      */
     public function testMarkMigratedVersion()
     {
-        $markMigrated = $this->migrations->markMigrated(20150704160200);
+        $markMigrated = $this->migrations->markMigrated('20150704160200');
         $this->assertTrue($markMigrated);
         $status = $this->migrations->status();
         $expected = [
@@ -465,7 +465,7 @@ class MigrationsTest extends TestCase
         ];
         $this->assertEquals($expected, $status);
 
-        $markMigrated = $this->migrations->markMigrated(20150826191400);
+        $markMigrated = $this->migrations->markMigrated('20150826191400');
         $this->assertTrue($markMigrated);
         $status = $this->migrations->status();
         $expected[2]['status'] = 'up';
@@ -522,7 +522,7 @@ class MigrationsTest extends TestCase
         $expected[0]['status'] = 'down';
         $this->assertEquals($expected, $result);
 
-        $migrate = $this->migrations->markMigrated(20150416223600, ['source' => 'Migrations']);
+        $migrate = $this->migrations->markMigrated('20150416223600', ['source' => 'Migrations']);
         $this->assertTrue($migrate);
         $result = $this->migrations->status(['source' => 'Migrations']);
         $expected[0]['status'] = 'up';
@@ -921,7 +921,7 @@ class MigrationsTest extends TestCase
     public function testMigrateErrors()
     {
         $this->expectException(\Exception::class);
-        $this->migrations->markMigrated(20150704160200);
+        $this->migrations->markMigrated('20150704160200');
         $this->migrations->migrate();
     }
 
@@ -942,7 +942,7 @@ class MigrationsTest extends TestCase
     public function testMarkMigratedErrors()
     {
         $this->expectException(\Exception::class);
-        $this->migrations->markMigrated(20150704000000);
+        $this->migrations->markMigrated('20150704000000');
     }
 
     /**

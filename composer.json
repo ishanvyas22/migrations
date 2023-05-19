@@ -20,9 +20,15 @@
         "irc": "irc://irc.freenode.org/cakephp",
         "source": "https://github.com/cakephp/migrations"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/passbolt/phinx.git"
+        }
+    ],
     "require": {
         "php": ">=7.4.0",
-        "robmorgan/phinx": "^0.13.2",
+        "robmorgan/phinx": "0.x-dev",
         "cakephp/orm": "^4.3.0",
         "cakephp/cache": "^4.3.0"
     },
